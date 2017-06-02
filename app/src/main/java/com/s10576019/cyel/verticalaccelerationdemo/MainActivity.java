@@ -32,20 +32,6 @@ public class MainActivity extends AppCompatActivity implements VerticalAccelerat
         zAccTextView = (TextView) findViewById(R.id.zAcc);
         pitchTextView = (TextView) findViewById(R.id.pitch);
         rollTextView = (TextView) findViewById(R.id.roll);
-
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
-        sensorManager.registerListener(new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
-                Log.i(this.getClass().getName(), String.format(Locale.getDefault(),"%.2f %.2f %.2f", event.values[0], event.values[1], event.values[2]));
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-            }
-        }, sensor, SensorManager.SENSOR_DELAY_GAME);
     }
 
     @Override
